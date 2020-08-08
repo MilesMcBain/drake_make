@@ -1,7 +1,7 @@
 the_plan <-
   drake_plan(
    
-    words = readLines("inputs/words.txt"),
+    words = readLines(file_in("inputs/words.txt")),
 
     histogram_data = make_historgram_data(words),
 
