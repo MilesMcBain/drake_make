@@ -1,0 +1,45 @@
+---
+title: "Untitled Draft"
+author: "Report Author"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Analysis
+
+```{r}
+loadd(histogram_plot)
+loadd(histogram_data)
+```
+On most *nix systems, the file `/usr/share/dict/words` contains a bunch of words. On my machine, it contains `r sum(histogram_data$Freq)` words.
+
+I computed the length of each word, i.e. the number of characters, and tabulated how many words consist of 1 character, 2 characters, etc.
+
+The most frequent word length is `r with(histogram_data, Length[which.max(Freq)])`.
+
+Here is a histogram of word lengths.
+
+```{r, fig.cap = "*Fig. 1* A histogram of English word lengths"}
+histogram_plot
+```
+
+## Reproducibility
+
+<details><summary>Reproducibility receipt</summary>
+
+```{r}
+## datetime
+Sys.time()
+
+## repository
+git2r::repository()
+
+## session info
+sessionInfo()
+```
+
+</details>
